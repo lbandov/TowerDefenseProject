@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e15bf818c384ab42ae101079737f223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 10
+  enemyCount: 1
   testGO: {fileID: 5142068360243829521}
   delayBtwSpawns: 1
 --- !u!114 &1626682226
@@ -304,6 +304,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4600922496045858490, guid: 60ba4a6211e810b498703250230a0187, type: 3}
+      propertyPath: Waypoint
+      value: 
+      objectReference: {fileID: 1626682227}
     - target: {fileID: 4600922496045858493, guid: 60ba4a6211e810b498703250230a0187, type: 3}
       propertyPath: barPosition
       value: 

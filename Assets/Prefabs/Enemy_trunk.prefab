@@ -110,7 +110,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 5467963913646556450, guid: daf3a34e52af9394d953d7b098baacc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.64, y: 0.32}
@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068bcab2ceaab8243ad51b74db999dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarPrefab: {fileID: 0}
-  barPosition: {fileID: 0}
+  healthBarPrefab: {fileID: 6827626016593620701, guid: fb659a9bec055124fab38ba6e61b05b4, type: 3}
+  barPosition: {fileID: 1811952188764331174}
   initialHealth: 50
   maxHealth: 50
 --- !u!114 &4600922496045858490
