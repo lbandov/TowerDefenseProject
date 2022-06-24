@@ -42,13 +42,24 @@ public class EnemyAnimations : MonoBehaviour
         }
     }
 
-private void OnEnable()
+    private void EnemyDead(Enemy enemy)
+    {
+        if (_enemy == enemy)
+        {
+            _enemyHealth.ResetHealth();
+            ObjectPooler.ReturnToPool(_enemy.gameObject);
+        }
+    }
+
+    private void OnEnable()
     {
         EnemyHealth.OnEnemyHit += EnemyHit;
+        EnemyHealth.OnEnemyKilled += EnemyDead;
     }
 
     private void OnDisable()
     {
         EnemyHealth.OnEnemyHit -= EnemyHit;
+        EnemyHealth.OnEnemyKilled -= EnemyDead;
     }
 }
