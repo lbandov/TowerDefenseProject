@@ -1,12 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+
+    public static Action OnWaveCompleted;
+
+
     [Header("Settings")]
     [SerializeField] private int enemyCount = 10;
-    [SerializeField] private GameObject testGO;
+    [SerializeField] private float delayBtwWaves = 1f;
 
     [Header("Fixed Delay")]
     [SerializeField] private float delayBtwSpawns;
@@ -17,14 +22,13 @@ public class Spawner : MonoBehaviour
 
     private float _spawnTimer;
     private int _enemiesSpawned;
+    private int _enemiesRamaining;
 
-    private ObjectPooler _pooler;
     private Waypoint _waypoint;
     // Start is called before the first frame update
     void Start()
     {
         _waypoint = GetComponent<Waypoint>();
-        _pooler = GetComponent<ObjectPooler>();
     }
 
     // Update is called once per frame
@@ -47,13 +51,51 @@ public class Spawner : MonoBehaviour
         GameObject newInstance = GetPooler().GetInstanceFromPool();
         Enemy enemy = newInstance.GetComponent<Enemy>();
         enemy.Waypoint = _waypoint;
+        enemy.ResetEnemy();
 
+        enemy.transform.localPosition = transform.position;
         newInstance.SetActive(true);
         
     }
 
+    private IEnumerator NextWave()
+    {
+        yield return new WaitForSeconds(delayBtwWaves);
+        _enemiesRamaining = enemyCount;
+        _spawnTimer = 0f;
+        _enemiesSpawned = 0;
+    }
+
     private ObjectPooler GetPooler()
     {
-        return enemyWave1Pooler;
+        int currentWave = LevelManager.Instance.CurrentWave;
+        if (currentWave <= 1) // 1- 10
+        {
+            return enemyWave1Pooler;
+        }
+
+        return null;
+    }
+
+    private void RecordEnemy(Enemy enemy)
+    {
+        _enemiesRamaining--;
+        if (_enemiesRamaining <= 0)
+        {
+            OnWaveCompleted?.Invoke();
+            StartCoroutine(NextWave());
+        }
+    }
+
+    private void OnEnable()
+    {
+        Enemy.OnEndReached += RecordEnemy;
+        EnemyHealth.OnEnemyKilled += RecordEnemy;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnEndReached -= RecordEnemy;
+        EnemyHealth.OnEnemyKilled -= RecordEnemy;
     }
 }

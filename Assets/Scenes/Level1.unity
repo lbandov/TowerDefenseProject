@@ -168,7 +168,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &576808446
+--- !u!1 &750559645
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,41 +176,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 576808448}
-  - component: {fileID: 576808447}
+  - component: {fileID: 750559646}
   m_Layer: 0
-  m_Name: Wave1
+  m_Name: Waves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &576808447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576808446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4ed3c24a8515ef449fafd19ec189423, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 8684498417050862583, guid: 60ba4a6211e810b498703250230a0187, type: 3}
-  poolSize: 10
---- !u!4 &576808448
+--- !u!4 &750559646
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576808446}
+  m_GameObject: {fileID: 750559645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.178131, y: 0.5643866, z: 0.06860844}
+  m_LocalPosition: {x: -9.324724, y: 0.69590205, z: 0.02762247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 946850558}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -298,6 +284,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &946850557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 946850558}
+  - component: {fileID: 946850559}
+  m_Layer: 0
+  m_Name: Waves1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &946850558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946850557}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 750559646}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &946850559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946850557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ed3c24a8515ef449fafd19ec189423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8684498417050862583, guid: 60ba4a6211e810b498703250230a0187, type: 3}
+  poolSize: 10
 --- !u!1 &1626682223
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626682223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10, y: 3.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -344,9 +376,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCount: 10
-  testGO: {fileID: 8684498417050862583, guid: 60ba4a6211e810b498703250230a0187, type: 3}
+  delayBtwWaves: 1
   delayBtwSpawns: 1
-  enemyWave1Pooler: {fileID: 576808447}
+  enemyWave1Pooler: {fileID: 946850559}
 --- !u!114 &1626682227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,8 +392,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -9.172138, y: -0.3318863, z: 0}
-  - {x: -5.491215, y: 3.2283523, z: 0}
-  - {x: 0.8146281, y: 1.7801199, z: 0}
-  - {x: -5.1593285, y: -3.2283506, z: 0}
-  - {x: 5.6722417, y: -1.6896039, z: 0}
+  - {x: 1.6622038, y: 0.28132558, z: 0}
+  - {x: 14.786125, y: 0.24196076, z: 0}
+  - {x: 14.491795, y: -4.0420856, z: 0}
+  - {x: 1.265172, y: -4.1819897, z: 0}
+  - {x: 1.0797253, y: -6.8844175, z: 0}
+  - {x: 9.737747, y: -6.9848003, z: 0}
+  - {x: 19.14864, y: -6.9848003, z: 0}
+  - {x: 19.249023, y: 0.44353127, z: 0}
