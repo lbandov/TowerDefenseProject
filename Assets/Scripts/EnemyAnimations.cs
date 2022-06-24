@@ -34,7 +34,7 @@ public class EnemyAnimations : MonoBehaviour
         _enemy.ResumeMovement();
     }
 
-    private void EnemyHit(Enemy enemy)
+    private void EnemyHit(Enemy enemy, float damage)
     {
         if (_enemy == enemy)
         {

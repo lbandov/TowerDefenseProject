@@ -214,6 +214,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &873405379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 873405382}
+  - component: {fileID: 873405381}
+  - component: {fileID: 873405380}
+  m_Layer: 0
+  m_Name: DamageTextManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &873405380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873405379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ed3c24a8515ef449fafd19ec189423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8385144164841883595, guid: 2030af4aa1e13ba4ca586351a24e9872, type: 3}
+  poolSize: 10
+--- !u!114 &873405381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873405379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7922b5c572e3bb4db89f56df7e1fa15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &873405382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873405379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1498058, y: -0.15228085, z: -0.0036451118}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &934166547
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - {x: -9.172138, y: -0.3318863, z: 0}
-  - {x: -5.491215, y: 3.2283523, z: 0}
-  - {x: 0.8146281, y: 1.7801199, z: 0}
+  - {x: -5.4912148, y: 3.2283523, z: 0}
+  - {x: 0.8146286, y: 1.7801199, z: 0}
   - {x: -5.1593285, y: -3.2283506, z: 0}
-  - {x: 5.6722417, y: -1.6896039, z: 0}
+  - {x: 5.672241, y: -1.6896039, z: 0}
