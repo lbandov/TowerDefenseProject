@@ -5,7 +5,7 @@ using System;
 public class EnemyHealth : MonoBehaviour
 {
     public static Action<Enemy> OnEnemyKilled;
-    public static Action<Enemy> OnEnemyHit;
+    public static Action<Enemy, float> OnEnemyHit;
 
     [SerializeField] private GameObject healthBarPrefab;
     [SerializeField] private Transform barPosition;
@@ -49,7 +49,7 @@ public class EnemyHealth : MonoBehaviour
             Die();
         }
         else {
-            OnEnemyHit?.Invoke(_enemy);
+            OnEnemyHit?.Invoke(_enemy, damageReceived);
         }
     }
 
