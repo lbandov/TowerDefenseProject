@@ -11,14 +11,19 @@ public class Spawner : MonoBehaviour
     [Header("Fixed Delay")]
     [SerializeField] private float delayBtwSpawns;
 
+
+    [Header("Poolers")]
+    [SerializeField] private ObjectPooler enemyWave1Pooler;
+
     private float _spawnTimer;
     private int _enemiesSpawned;
 
     private ObjectPooler _pooler;
-
+    private Waypoint _waypoint;
     // Start is called before the first frame update
     void Start()
     {
+        _waypoint = GetComponent<Waypoint>();
         _pooler = GetComponent<ObjectPooler>();
     }
 
@@ -39,7 +44,16 @@ public class Spawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject newInstance = _pooler.GetInstanceFromPool();
+        GameObject newInstance = GetPooler().GetInstanceFromPool();
+        Enemy enemy = newInstance.GetComponent<Enemy>();
+        enemy.Waypoint = _waypoint;
+
         newInstance.SetActive(true);
+        
+    }
+
+    private ObjectPooler GetPooler()
+    {
+        return enemyWave1Pooler;
     }
 }
